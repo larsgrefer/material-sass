@@ -20,7 +20,7 @@ material-sass
 * The `$colors`-map with the color names as keys and the color-maps as values (useful in `@each` statements)
 * [More information here](http://www.google.com/design/spec/style/color.html#color-ui-color-palette)
 
-#### `@import "material/defaults`;
+#### `@import "material/defaults";`
 * `$primary-<hue>` and `$accent-<hue>` (defaults are indigo(primary) and pink(accent))
 
 ### Mixins
