@@ -1,0 +1,85 @@
+@import "material";
+@import "compass/css3";
+
+@mixin border-bottom-width($width){
+	border-bottom-width:	$width;
+	padding-bottom:			8px - $width;
+}
+
+@include inputField
+{
+	font-size:				16px;
+	font-weight:			500;
+	@include				font-color(text);
+	@include				border-radius(0px);
+	@include				box-shadow(none);
+	border:					none;
+	background-color:		transparent;
+	border-bottom-style:	solid;
+	@include placeholder{
+		font-size:		16px;
+		font-weight:	500;
+	}
+	&, &.light, .light &{
+		border-bottom-color:	rgba(#000, 0.12);
+		@include placeholder{
+			opacity: 1;
+			color: rgba(#000, 0.26);
+		}
+	}
+	&.dark, .dark &{
+		border-bottom-color:	rgba(#FFF, 0.12);
+		@include placeholder{
+			opacity: 1;
+			color: rgba(#FFF, 0.26);
+		}
+	}
+	&:not(.full-width)
+	{
+		margin:		8px 0px 8px;
+		padding:	8px 0px 7px;
+		@include	border-bottom-width(1px);
+		&:focus{
+			@include border-bottom-width(2.5px);
+			&, &[color="primary"]{
+				border-bottom-color:	$primary-500;
+			}
+			&[color="accent"]{
+				border-bottom-color:	$accent-A400;
+			}
+			@each $name, $color in $colors
+			{
+				&[color="#{"" + $name}"]{
+					border-bottom-color:	map-get($color, 500);
+				}
+			}
+		}
+		&:disabled{
+			@include border-bottom-width(2px);
+			border-bottom-style:	dotted;
+		}
+		&:invalid{
+			@include border-bottom-width(2.5px);
+			border-bottom-color:	$red-500;
+		}
+		label.floating + &{
+			padding-top:	8px;
+			margin-top:		0px;
+		}
+	}
+	&.full-width{
+		margin:		0px;
+		padding:	20px;
+		@include	box-sizing(border-box);
+	}
+}
+
+label.floating{
+	font-weight:	500;
+	font-size:		12px;
+	display:		block;
+	margin:			0px;
+	padding:		0px;
+	padding-top:	16px;
+	@include font-color(hint);
+}

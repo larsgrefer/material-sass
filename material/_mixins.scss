@@ -1,0 +1,87 @@
+@import "compass/css3";
+
+@mixin z-depth( $depth )
+{
+	@if $depth == 0 {
+		@include box-shadow( none );
+	} 
+	@else if $depth == 1	{
+		@include box-shadow(
+			0px	1px	1.5px rgba(#000, 0.12), 
+			0px	1px	1px   rgba(#000, 0.24)); 
+	} 
+	@else if $depth == 2	{ 
+		@include box-shadow(
+			0px	3px	3px	rgba(#000, 0.16), 
+			0px	3px	3px	rgba(#000, 0.23));
+	} 
+	@else if $depth == 3	{ 
+		@include box-shadow( 
+			0px	10px 10px rgba(#000, 0.19),
+			0px	6px	 3px  rgba(#000, 0.23));
+	} 
+	@else if $depth == 4	{ 
+		@include box-shadow( 
+			0px 14px 14px rgba(#000, 0.25), 
+			0px 10px 5px  rgba(#000, 0.22));
+	} 
+	@else if $depth == 5	{ 
+		@include box-shadow( 
+			0px	19px 19px rgba(#000, 0.30), 
+			0px	15px 6px  rgba(#000, 0.22));
+	}
+	@else{
+		@warn "Invalid z-depth (#{$depth})";
+	}
+}
+
+@mixin button
+{
+	button, .button, input[type="submit"], input[type="button"], input[type="reset"]{
+		@content
+	}
+}
+
+@mixin inputField
+{
+	input[type="text"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="email"],
+	input[type="number"],
+	input[type="password"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="url"]
+	{
+		@content
+	}
+}
+
+@mixin font-color($type){
+	
+	$alpha:		(text:		0.87,
+				secondary:	0.54,
+				hint:		0.26 );
+	&, &.light, .light & {
+		color: rgba(#000, map-get($alpha, $type));
+	}
+	&.dark, .dark & {
+		color: rgba(#FFF, map-get($alpha, $type));
+	}
+}
+
+@mixin placeholder
+{
+	@each $selector in ("::-webkit-input-placeholder", 
+						":-moz-placeholder", 
+						"::-moz-placeholder", 
+						":-ms-input-placeholder")
+						{
+							&#{$selector}
+							{
+								@content
+							}
+						}
+}
