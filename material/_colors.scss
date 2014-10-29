@@ -1,8 +1,6 @@
-/*
- * Values from: http://www.google.com/design/spec/style/color.html#color-ui-color-palette
- */
+// Values from: http://www.google.com/design/spec/style/color.html#color-ui-color-palette
 
-/*Red*/
+// Red
 $red-50:	#fde0dc;
 $red-100:	#f9bdbb;
 $red-200:	#f69988;
@@ -34,7 +32,7 @@ A200:	$red-A200,
 A400:	$red-A400,
 A700:	$red-A700);
 
-/*Pink*/
+//Pink
 $pink-50:	#fce4ec;
 $pink-100:	#f8bbd0;
 $pink-200:	#f48fb1;
@@ -66,7 +64,7 @@ A200:	$pink-A200,
 A400:	$pink-A400,
 A700:	$pink-A700);
 
-/*Purple*/
+//Purple
 $purple-50:	#f3e5f5;
 $purple-100:	#e1bee7;
 $purple-200:	#ce93d8;
@@ -98,7 +96,7 @@ A200:	$purple-A200,
 A400:	$purple-A400,
 A700:	$purple-A700);
 
-/*Deep Purple*/
+//Deep Purple
 $deepPurple-50:		#ede7f6;
 $deepPurple-100:	#d1c4e9;
 $deepPurple-200:	#b39ddb;
@@ -130,7 +128,7 @@ A200:	$deepPurple-A200,
 A400:	$deepPurple-A400,
 A700:	$deepPurple-A700);
 
-/*Indigo*/
+//Indigo
 $indigo-50:	#e8eaf6;
 $indigo-100:	#c5cae9;
 $indigo-200:	#9fa8da;
@@ -162,7 +160,7 @@ A200:	$indigo-A200,
 A400:	$indigo-A400,
 A700:	$indigo-A700);
 
-/*Blue*/
+//Blue
 $blue-50:	#e7e9fd;
 $blue-100:	#d0d9ff;
 $blue-200:	#afbfff;
@@ -194,7 +192,7 @@ A200:	$blue-A200,
 A400:	$blue-A400,
 A700:	$blue-A700);
 
-/*Light Blue*/
+//Light Blue
 $lightBlue-50:		#e1f5fe;
 $lightBlue-100:		#b3e5fc;
 $lightBlue-200:		#81d4fa;
@@ -226,7 +224,7 @@ A200:	$lightBlue-A200,
 A400:	$lightBlue-A400,
 A700:	$lightBlue-A700);
 
-/*Cyan*/
+//Cyan
 $cyan-50:	#e0f7fa;
 $cyan-100:	#b2ebf2;
 $cyan-200:	#80deea;
@@ -258,7 +256,7 @@ A200:	$cyan-A200,
 A400:	$cyan-A400,
 A700:	$cyan-A700);
 
-/*Teal*/
+//Teal
 $teal-50:	#e0f2f1;
 $teal-100:	#b2dfdb;
 $teal-200:	#80cbc4;
@@ -290,7 +288,7 @@ A200:	$teal-A200,
 A400:	$teal-A400,
 A700:	$teal-A700);
 
-/*Green*/
+//Green
 $green-50:	#d0f8ce;
 $green-100:	#a3e9a4;
 $green-200:	#72d572;
@@ -322,7 +320,7 @@ A200:	$green-A200,
 A400:	$green-A400,
 A700:	$green-A700);
 
-/*Light Green*/
+//Light Green
 $lightGreen-50:		#f1f8e9;
 $lightGreen-100:	#dcedc8;
 $lightGreen-200:	#c5e1a5;
@@ -354,7 +352,7 @@ A200:	$lightGreen-A200,
 A400:	$lightGreen-A400,
 A700:	$lightGreen-A700);
 
-/*Lime*/
+//Lime
 $lime-50:	#f9fbe7;
 $lime-100:	#f0f4c3;
 $lime-200:	#e6ee9c;
@@ -386,7 +384,7 @@ A200:	$lime-A200,
 A400:	$lime-A400,
 A700:	$lime-A700);
 
-/*Yellow*/
+//Yellow
 $yellow-50:	#fffde7;
 $yellow-100:	#fff9c4;
 $yellow-200:	#fff59d;
@@ -418,7 +416,7 @@ A200:	$yellow-A200,
 A400:	$yellow-A400,
 A700:	$yellow-A700);
 
-/*Amber*/
+//Amber
 $amber-50:	#fff8e1;
 $amber-100:	#ffecb3;
 $amber-200:	#ffe082;
@@ -450,7 +448,7 @@ A200:	$amber-A200,
 A400:	$amber-A400,
 A700:	$amber-A700);
 
-/*Orange*/
+//Orange
 $orange-50:	#fff3e0;
 $orange-100:	#ffe0b2;
 $orange-200:	#ffcc80;
@@ -482,7 +480,7 @@ A200:	$orange-A200,
 A400:	$orange-A400,
 A700:	$orange-A700);
 
-/*Deep Orange*/
+//Deep Orange
 $deepOrange-50:		#fbe9e7;
 $deepOrange-100:	#ffccbc;
 $deepOrange-200:	#ffab91;
@@ -514,7 +512,7 @@ A200:	$deepOrange-A200,
 A400:	$deepOrange-A400,
 A700:	$deepOrange-A700);
 
-/*Brown*/
+//Brown
 $brown-50:	#efebe9;
 $brown-100:	#d7ccc8;
 $brown-200:	#bcaaa4;
@@ -538,7 +536,7 @@ $brown:
 800:	$brown-800,
 900:	$brown-900);
 
-/*Grey*/
+//Grey
 $grey-0:	#ffffff;
 $grey-50:	#fafafa;
 $grey-100:	#f5f5f5;
@@ -566,7 +564,7 @@ $grey:
 900:	$grey-900,
 1000:	$grey-1000);
 
-/*Blue Grey*/
+//Blue Grey
 $blueGrey-50:	#eceff1;
 $blueGrey-100:	#cfd8dc;
 $blueGrey-200:	#b0bec5;
