@@ -10,7 +10,34 @@ material-sass
   - Within a compass project: Add the following line to your `config.rb`: `add_import_path "<path>"`
 4. Import the files to your scss/sass: `@import "material/design;"` (or only `@import "material";` if you just want to use the helpers (variables and mixins) without importing any declared css-rules)
 
-## Available Helpers
+## Designs
+
+For a light design add the class `light` to the `<html>` or `<body>`-element. For a dark design use the class `dark`
+
+### Buttons
+
+classes:
+* `flat` or `raised` (by default the raised styles are applied)
+* `color`: The button is colored in the selected primary-color
+
+Use the `color` HTML-Attribute to use another color for the button
+
+```
+<button class="flat" color="red">Click Me!</button>
+<button class="raised" color="deepPurple">Hello World!</button>
+```
+
+### Inputs
+
+classes:
+* `full-width` [See here](http://www.google.com/design/spec/components/text-fields.html#text-fields-full-width-text-field)
+
+#### Lables
+
+classes:
+* `floating` [See here](http://www.google.com/design/spec/components/text-fields.html#text-fields-floating-labels)
+
+## Helpers
 
 ### Variables
 
