@@ -32,3 +32,8 @@ A100:	$lightBlue-A100,
 A200:	$lightBlue-A200,
 A400:	$lightBlue-A400,
 A700:	$lightBlue-A700);
+
+@function lightBlue($hue)
+{
+	@return map-get($lightBlue, $hue);
+}

@@ -24,3 +24,8 @@ $blueGrey:
 700:	$blueGrey-700,
 800:	$blueGrey-800,
 900:	$blueGrey-900);
+
+@function blueGrey($hue)
+{
+	@return map-get($blueGrey, $hue);
+}

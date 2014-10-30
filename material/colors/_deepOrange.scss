@@ -32,3 +32,8 @@ A100:	$deepOrange-A100,
 A200:	$deepOrange-A200,
 A400:	$deepOrange-A400,
 A700:	$deepOrange-A700);
+
+@function deepOrange($hue)
+{
+	@return map-get($deepOrange, $hue);
+}

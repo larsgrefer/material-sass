@@ -32,3 +32,8 @@ A100:	$purple-A100,
 A200:	$purple-A200,
 A400:	$purple-A400,
 A700:	$purple-A700);
+
+@function purple($hue)
+{
+	@return map-get($purple, $hue);
+}

@@ -32,3 +32,8 @@ A100:	$cyan-A100,
 A200:	$cyan-A200,
 A400:	$cyan-A400,
 A700:	$cyan-A700);
+
+@function cyan($hue)
+{
+	@return map-get($cyan, $hue);
+}

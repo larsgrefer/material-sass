@@ -32,3 +32,8 @@ A100:	$pink-A100,
 A200:	$pink-A200,
 A400:	$pink-A400,
 A700:	$pink-A700);
+
+@function pink($hue)
+{
+	@return map-get($pink, $hue);
+}

@@ -32,3 +32,8 @@ A100:	$yellow-A100,
 A200:	$yellow-A200,
 A400:	$yellow-A400,
 A700:	$yellow-A700);
+
+@function yellow($hue)
+{
+	@return map-get($yellow, $hue);
+}

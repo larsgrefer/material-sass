@@ -32,3 +32,8 @@ A100:	$lightGreen-A100,
 A200:	$lightGreen-A200,
 A400:	$lightGreen-A400,
 A700:	$lightGreen-A700);
+
+@function lightGreen($hue)
+{
+	@return map-get($lightGreen, $hue);
+}

@@ -24,3 +24,8 @@ $brown:
 700:	$brown-700,
 800:	$brown-800,
 900:	$brown-900);
+
+@function brown($hue)
+{
+	@return map-get($brown, $hue);
+}
