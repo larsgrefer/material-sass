@@ -10,6 +10,7 @@
 {
 	font-size:				16px;
 	font-weight:			500;
+	font-family:			RobotoDraft, Roboto, sans-serif;
 	@include				font-color(text);
 	@include				border-radius(0px);
 	@include				box-shadow(none);
