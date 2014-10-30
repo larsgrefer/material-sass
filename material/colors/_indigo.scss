@@ -33,7 +33,7 @@ A200:	$indigo-A200,
 A400:	$indigo-A400,
 A700:	$indigo-A700);
 
-@function indigo($hue)
+@function indigo($hue: 500)
 {
 	@return map-get($indigo, $hue);
 }

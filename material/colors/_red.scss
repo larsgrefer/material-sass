@@ -33,7 +33,7 @@ A200:	$red-A200,
 A400:	$red-A400,
 A700:	$red-A700);
 
-@function red($hue)
+@function red($hue: 500)
 {
 	@return map-get($red, $hue);
 }

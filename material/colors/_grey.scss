@@ -29,7 +29,7 @@ $grey:
 900:	$grey-900,
 1000:	$grey-1000);
 
-@function grey($hue)
+@function grey($hue: 500)
 {
 	@return map-get($grey, $hue);
 }

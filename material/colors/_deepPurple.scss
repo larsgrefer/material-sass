@@ -33,7 +33,7 @@ A200:	$deepPurple-A200,
 A400:	$deepPurple-A400,
 A700:	$deepPurple-A700);
 
-@function deepPurple($hue)
+@function deepPurple($hue: 500)
 {
 	@return map-get($deepPurple, $hue);
 }

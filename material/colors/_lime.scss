@@ -33,7 +33,7 @@ A200:	$lime-A200,
 A400:	$lime-A400,
 A700:	$lime-A700);
 
-@function lime($hue)
+@function lime($hue: 500)
 {
 	@return map-get($lime, $hue);
 }

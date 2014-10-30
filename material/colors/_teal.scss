@@ -33,7 +33,7 @@ A200:	$teal-A200,
 A400:	$teal-A400,
 A700:	$teal-A700);
 
-@function teal($hue)
+@function teal($hue: 500)
 {
 	@return map-get($teal, $hue);
 }

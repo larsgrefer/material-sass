@@ -2,7 +2,7 @@
 //http://www.google.com/design/spec/style/color.html#color-ui-color-palette
 
 //Purple
-$purple-50:	#f3e5f5;
+$purple-50:		#f3e5f5;
 $purple-100:	#e1bee7;
 $purple-200:	#ce93d8;
 $purple-300:	#ba68c8;
@@ -33,7 +33,7 @@ A200:	$purple-A200,
 A400:	$purple-A400,
 A700:	$purple-A700);
 
-@function purple($hue)
+@function purple($hue: 500)
 {
 	@return map-get($purple, $hue);
 }
