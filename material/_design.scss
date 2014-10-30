@@ -19,6 +19,25 @@ body
 	}
 }
 
+button, .button, input[type="submit"], input[type="button"], input[type="reset"]
+{
+	@extend %button;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"]
+{
+	@extend %inputField
+}
+
 .toolbar
 {
     background-color: $primary-500;
@@ -54,7 +73,7 @@ body, div, iframe{
 	font-size:			14px;
 	font-weight:		400;
 	background-color:	#323232;
-	@include button{
+	%button{
 		@extend .flat;
 		@extend .color;
 		margin: 0px;

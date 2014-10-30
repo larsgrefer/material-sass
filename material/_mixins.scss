@@ -35,30 +35,6 @@
 	}
 }
 
-@mixin button
-{
-	button, .button, input[type="submit"], input[type="button"], input[type="reset"]{
-		@content
-	}
-}
-
-@mixin inputField
-{
-	input[type="text"],
-	input[type="date"],
-	input[type="datetime"],
-	input[type="datetime-local"],
-	input[type="email"],
-	input[type="number"],
-	input[type="password"],
-	input[type="search"],
-	input[type="tel"],
-	input[type="url"]
-	{
-		@content
-	}
-}
-
 @mixin font-color($type){
 	
 	$alpha:		(text:		0.87,

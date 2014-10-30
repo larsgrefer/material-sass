@@ -1,7 +1,7 @@
 @import "compass/css3";
 @import "material";
 
-@include button {
+%button {
     height:			36px;
     min-width:		88px;
 	@include		box-sizing(border-box);

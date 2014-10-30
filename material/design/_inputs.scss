@@ -6,7 +6,7 @@
 	padding-bottom:			8px - $width;
 }
 
-@include inputField
+%inputField
 {
 	font-size:				16px;
 	font-weight:			500;
