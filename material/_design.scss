@@ -6,16 +6,20 @@
 
 body
 {
-    font-family:	RobotoDraft, Roboto, sans-serif;
-    font-size:		13px;
-    font-weight:	400;
-    color:			rgba(#000, 0.87);
-    background-color: $grey-50;
-	&.light, .light &{
-		background-color: $grey-200;
+    font-family:			RobotoDraft, Roboto, sans-serif;
+    font-size:				13px;
+    font-weight:			400;
+    color:					rgba(#000, 0.87);
+    background-color:		$grey-50;
+	&.light, .light &
+	{
+		background-color:	$grey-200;
+		color:				rgba(#000, 0.87);
 	}
-	&.dark, .dark &{
-		background-color: #333;
+	&.dark, .dark &
+	{
+		background-color:	#333;
+		color:				rgba(#fff, 0.87);
 	}
 }
 
@@ -34,22 +38,26 @@ body
     background-color: $primary-500;
 }
 
-.container{
+.container
+{
 	&.dark
 	{
 		background-color: #333;
 	}
-	&.card{
-		margin: 8px 8px 0px;
-		padding: 0px;
-		@include z-depth(5);
-		&:last-of-type{
+	&.card
+	{
+		margin:		8px 8px 0px;
+		padding:	0px;
+		@include	z-depth(5);
+		&:last-of-type
+		{
 			margin-bottom: 8px;
 		}
 	}
 }
 
-body, div, iframe{ 
+div, iframe, section, article
+{ 
 	@extend .container;
 }
 
@@ -64,9 +72,17 @@ body, div, iframe{
 	font-size:			14px;
 	font-weight:		400;
 	background-color:	#323232;
-	%button{
-		@extend .flat;
-		@extend .color;
-		margin: 0px;
+	%button
+	{
+		@extend		.flat;
+		@extend		.color;
+		margin:		0px;
 	}
+}
+
+.tooltip
+{
+	font-size:			10px;
+	color:				rgba(#FFF, 0.87);
+	background-color:	rgba(#000, 0.9);
 }
