@@ -1,0 +1,34 @@
+//Values from:
+//http://www.google.com/design/spec/style/color.html#color-ui-color-palette
+
+//Orange
+$orange-50:	#fff3e0;
+$orange-100:	#ffe0b2;
+$orange-200:	#ffcc80;
+$orange-300:	#ffb74d;
+$orange-400:	#ffa726;
+$orange-500:	#ff9800;
+$orange-600:	#fb8c00;
+$orange-700:	#f57c00;
+$orange-800:	#ef6c00;
+$orange-900:	#e65100;
+$orange-A100:	#ffd180;
+$orange-A200:	#ffab40;
+$orange-A400:	#ff9100;
+$orange-A700:	#ff6d00;
+
+$orange: 
+(50:	$orange-50,
+100:	$orange-100,
+200:	$orange-200,
+300:	$orange-300,
+400:	$orange-400,
+500:	$orange-500,
+600:	$orange-600,
+700:	$orange-700,
+800:	$orange-800,
+900:	$orange-900,
+A100:	$orange-A100,
+A200:	$orange-A200,
+A400:	$orange-A400,
+A700:	$orange-A700);

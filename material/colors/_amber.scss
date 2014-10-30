@@ -1,0 +1,34 @@
+//Values from:
+//http://www.google.com/design/spec/style/color.html#color-ui-color-palette
+
+//Amber
+$amber-50:	#fff8e1;
+$amber-100:	#ffecb3;
+$amber-200:	#ffe082;
+$amber-300:	#ffd54f;
+$amber-400:	#ffca28;
+$amber-500:	#ffc107;
+$amber-600:	#ffb300;
+$amber-700:	#ffa000;
+$amber-800:	#ff8f00;
+$amber-900:	#ff6f00;
+$amber-A100:	#ffe57f;
+$amber-A200:	#ffd740;
+$amber-A400:	#ffc400;
+$amber-A700:	#ffab00;
+
+$amber: 
+(50:	$amber-50,
+100:	$amber-100,
+200:	$amber-200,
+300:	$amber-300,
+400:	$amber-400,
+500:	$amber-500,
+600:	$amber-600,
+700:	$amber-700,
+800:	$amber-800,
+900:	$amber-900,
+A100:	$amber-A100,
+A200:	$amber-A200,
+A400:	$amber-A400,
+A700:	$amber-A700);

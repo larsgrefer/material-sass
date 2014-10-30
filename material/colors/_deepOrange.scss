@@ -1,0 +1,34 @@
+//Values from:
+//http://www.google.com/design/spec/style/color.html#color-ui-color-palette
+
+//Deep Orange
+$deepOrange-50:		#fbe9e7;
+$deepOrange-100:	#ffccbc;
+$deepOrange-200:	#ffab91;
+$deepOrange-300:	#ff8a65;
+$deepOrange-400:	#ff7043;
+$deepOrange-500:	#ff5722;
+$deepOrange-600:	#f4511e;
+$deepOrange-700:	#e64a19;
+$deepOrange-800:	#d84315;
+$deepOrange-900:	#bf360c;
+$deepOrange-A100:	#ff9e80;
+$deepOrange-A200:	#ff6e40;
+$deepOrange-A400:	#ff3d00;
+$deepOrange-A700:	#dd2c00;
+
+$deepOrange: 
+(50:	$deepOrange-50,
+100:	$deepOrange-100,
+200:	$deepOrange-200,
+300:	$deepOrange-300,
+400:	$deepOrange-400,
+500:	$deepOrange-500,
+600:	$deepOrange-600,
+700:	$deepOrange-700,
+800:	$deepOrange-800,
+900:	$deepOrange-900,
+A100:	$deepOrange-A100,
+A200:	$deepOrange-A200,
+A400:	$deepOrange-A400,
+A700:	$deepOrange-A700);

@@ -1,0 +1,34 @@
+//Values from:
+//http://www.google.com/design/spec/style/color.html#color-ui-color-palette
+
+//Indigo
+$indigo-50:	#e8eaf6;
+$indigo-100:	#c5cae9;
+$indigo-200:	#9fa8da;
+$indigo-300:	#7986cb;
+$indigo-400:	#5c6bc0;
+$indigo-500:	#3f51b5;
+$indigo-600:	#3949ab;
+$indigo-700:	#303f9f;
+$indigo-800:	#283593;
+$indigo-900:	#1a237e;
+$indigo-A100:	#8c9eff;
+$indigo-A200:	#536dfe;
+$indigo-A400:	#3d5afe;
+$indigo-A700:	#304ffe;
+
+$indigo: 
+(50:	$indigo-50,
+100:	$indigo-100,
+200:	$indigo-200,
+300:	$indigo-300,
+400:	$indigo-400,
+500:	$indigo-500,
+600:	$indigo-600,
+700:	$indigo-700,
+800:	$indigo-800,
+900:	$indigo-900,
+A100:	$indigo-A100,
+A200:	$indigo-A200,
+A400:	$indigo-A400,
+A700:	$indigo-A700);

@@ -1,0 +1,34 @@
+//Values from:
+//http://www.google.com/design/spec/style/color.html#color-ui-color-palette
+
+//Pink
+$pink-50:	#fce4ec;
+$pink-100:	#f8bbd0;
+$pink-200:	#f48fb1;
+$pink-300:	#f06292;
+$pink-400:	#ec407a;
+$pink-500:	#e91e63;
+$pink-600:	#d81b60;
+$pink-700:	#c2185b;
+$pink-800:	#ad1457;
+$pink-900:	#880e4f;
+$pink-A100:	#ff80ab;
+$pink-A200:	#ff4081;
+$pink-A400:	#f50057;
+$pink-A700:	#c51162;
+
+$pink: 
+(50:	$pink-50,
+100:	$pink-100,
+200:	$pink-200,
+300:	$pink-300,
+400:	$pink-400,
+500:	$pink-500,
+600:	$pink-600,
+700:	$pink-700,
+800:	$pink-800,
+900:	$pink-900,
+A100:	$pink-A100,
+A200:	$pink-A200,
+A400:	$pink-A400,
+A700:	$pink-A700);

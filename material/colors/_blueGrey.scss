@@ -1,0 +1,26 @@
+//Values from:
+//http://www.google.com/design/spec/style/color.html#color-ui-color-palette
+
+//Blue Grey
+$blueGrey-50:	#eceff1;
+$blueGrey-100:	#cfd8dc;
+$blueGrey-200:	#b0bec5;
+$blueGrey-300:	#90a4ae;
+$blueGrey-400:	#78909c;
+$blueGrey-500:	#607d8b;
+$blueGrey-600:	#546e7a;
+$blueGrey-700:	#455a64;
+$blueGrey-800:	#37474f;
+$blueGrey-900:	#263238;
+
+$blueGrey: 
+(50:	$blueGrey-50,
+100:	$blueGrey-100,
+200:	$blueGrey-200,
+300:	$blueGrey-300,
+400:	$blueGrey-400,
+500:	$blueGrey-500,
+600:	$blueGrey-600,
+700:	$blueGrey-700,
+800:	$blueGrey-800,
+900:	$blueGrey-900);
