@@ -19,21 +19,12 @@ body
 	}
 }
 
-button, .button, input[type="submit"], input[type="button"], input[type="reset"]
+#{$button-selector}
 {
 	@extend %button;
 }
 
-input[type="text"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="url"]
+#{$inputField-selector}
 {
 	@extend %inputField
 }
