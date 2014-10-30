@@ -1,6 +1,45 @@
 @import "compass/css3";
 
+//Values from:
+//http://material-design.storage.googleapis.com/images/layout-principles-dimensionality-shadows-09_large_mdpi.png
 @mixin z-depth( $depth )
+{
+	@if $depth == 0 {
+		@include box-shadow( none );
+	} 
+	@else if $depth == 1	{
+		@include box-shadow(
+			0px	2px	10px rgba(#000, 0.16), 
+			0px	2px	5px  rgba(#000, 0.26)); 
+	} 
+	@else if $depth == 2	{ 
+		@include box-shadow(
+			0px 6px 20px rgba(#000, 0.19), 
+			0px 8px 17px rgba(#000, 0.20));
+	} 
+	@else if $depth == 3	{ 
+		@include box-shadow( 
+			0px	17px 50px rgba(#000, 0.19),
+			0px	12px 15px rgba(#000, 0.24));
+	} 
+	@else if $depth == 4	{ 
+		@include box-shadow( 
+			0px 25px 55px rgba(#000, 0.21), 
+			0px 16px 28px rgba(#000, 0.22));
+	} 
+	@else if $depth == 5	{ 
+		@include box-shadow( 
+			0px	40px 77px rgba(#000, 0.22), 
+			0px	27px 24px  rgba(#000, 0.20));
+	}
+	@else{
+		@warn "Invalid z-depth (#{$depth})";
+	}
+}
+
+// Values from:
+//http://material-design.storage.googleapis.com/images/layout-principles-dimensionality-shadows-08_large_mdpi.png
+@mixin z-depth-illustrator( $depth )
 {
 	@if $depth == 0 {
 		@include box-shadow( none );
@@ -34,6 +73,7 @@
 		@warn "Invalid z-depth (#{$depth})";
 	}
 }
+
 
 @mixin font-color($type){
 	
