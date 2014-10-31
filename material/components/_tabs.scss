@@ -1,0 +1,44 @@
+@import "compass/css3";
+@import "material/fonts";
+@import "material/mixins";
+
+%tabs{
+	margin:		0px;
+	@include	display-flex;
+	@include	flex-direction(row);
+	@include	flex-grow(1);
+	@include	flex-wrap(nowrap);
+	@include	justify-content(flex-start);
+	@include	align-items(stretch);
+	@include	align-content(stretch);
+	height:		48px;
+	&.fixed %tab
+	{
+		@include	flex-shrink(1);
+	}
+	
+	&.scrollable
+	{
+		overflow-x: scroll;
+		%tab
+		{
+			&:first-child{
+				margin-left: 80px - 24px;
+			}
+			&:last-child{
+				margin-right: 80px - 24px;
+			}
+			@include	flex-shrink(0);
+		}
+	}
+	
+	%tab
+	{
+		border:	none;
+		border-bottom-width:	4px;
+		text-transform:			uppercase;
+		font-size:				font-size("button");
+		font-weight:			font-weight("button");
+		@inlcude				font-color("button");
+	}
+}

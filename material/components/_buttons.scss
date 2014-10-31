@@ -7,9 +7,9 @@
 	padding:		8px 16px;
 	@include		box-sizing(border-box);
     text-transform:	uppercase;
-	font-size:		14px;
-	font-family:	RobotoDraft, Roboto, sans-serif;
-	font-weight:	500;
+	font-size:		font-size("button");
+	font-family:	$font-family;
+	font-weight:	font-weight("button");
 	text-align:		center;
 	vertical-align: middle;
 	

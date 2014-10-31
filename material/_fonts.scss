@@ -1,1 +1,95 @@
 @import url("http://fonts.googleapis.com/css?family=RobotoDraft:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i|Roboto:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i");
+
+$font-family:	"RobotoDraft, Roboto, sans-serif";
+
+$font-sizes:(
+//Values from:
+//http://material-design.storage.googleapis.com/images/style-typography1_large_mdpi.png
+"display-4":	112px,
+"display-3":	56px,
+"display-2":	45px,
+"display-1":	34px,
+"headline":		24px,
+"title":		20px,
+"subhead":		15px,
+"body-2":		13px,
+"body-1":		13px,
+"caption":		12px,
+"menu":			13px,
+"button":		14px
+);
+
+@function font-size($type: "body-2")
+{
+	@return map-get($font-sizes, $type);
+}
+
+$font-weights:(
+//Values from:
+//http://material-design.storage.googleapis.com/images/style-typography1_large_mdpi.png
+"display-4":	300,
+"display-3":	400,
+"display-2":	400,
+"display-1":	400,
+"headline":		400,
+"title":		500,
+"subhead":		400,
+"body-2":		500,
+"body-1":		400,
+"caption":		400,
+"menu":			500,
+"button":		500
+);
+
+@function font-weight($type: "body-2")
+{
+	@return map-get($font-weights, $type);
+}
+
+$opacities:(
+//Values from
+//http://material-design.storage.googleapis.com/images/style-typography-16_large_mdpi.png
+"display-4":	0.54,
+"display-3":	0.54,
+"display-2":	0.54,
+"display-1":	0.54,
+"headline":		0.87,
+"title":		0.87,
+"subhead":		0.87,
+"body-2":		0.87,
+"body-1":		0.87,
+"caption":		0.54,
+"menu":			0.87,
+"button":		0.87,
+//Values from
+//http://material-design.storage.googleapis.com/images/style-color-colorapplication-color_application-02_large_mdpi.png
+"divider":			0.12,
+"hint":				0.26,
+"hint-text":		0.26,
+"secondary":		0.54,
+"secondary-text":	0.54,
+"icon":				0.54,
+"text":				0.87
+);
+
+@function opacity($type: "body-2")
+{
+	@return map-get($opacities, $type);
+}
+
+$line-heights:(
+//Values from:
+//http://material-design.storage.googleapis.com/images/style-typography-25_large_mdpi.png
+"display-2":	48pt,
+"display-1":	40pt,
+"headline":		32pt,
+"subhead-2":	28pt,
+"subhead-1":	24pt,
+"body-2":		24pt,
+"body-1":		20pt,
+);
+
+@function line-height($type: "body-2")
+{
+	@return map-get($line-heights, $type);
+}

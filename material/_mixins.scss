@@ -75,16 +75,13 @@
 }
 
 
-@mixin font-color($type){
+@mixin font-color($type: "body-2"){
 	
-	$alpha:		(text:		0.87,
-				secondary:	0.54,
-				hint:		0.26 );
 	&, &.light, .light & {
-		color: rgba(#000, map-get($alpha, $type));
+		color: rgba(#000, opacity($type));
 	}
 	&.dark, .dark & {
-		color: rgba(#FFF, map-get($alpha, $type));
+		color: rgba(#FFF, opacity($type));
 	}
 }
 
