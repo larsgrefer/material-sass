@@ -30,7 +30,7 @@ $accent-A200:	$pink-A200 !default;
 $accent-A400:	$pink-A400 !default;
 $accent-A700:	$pink-A700 !default;
 
-$inputField-selector: "input[type="text"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="url"]";
+$inputField-selector: "input[type="text"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="url"], input[role="textbox"]";
 
 $button-selector: "button, .button, input[type="submit"], input[type="button"], input[type="reset"]";
 

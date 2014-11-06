@@ -120,3 +120,21 @@ $last-black-accent: (
 	}
 	@return if(brightness($bgcolor) <= 50%, $black, $white);
 }
+
+@mixin background-color($bg-color, $hue: 500)
+{
+	@if type-of($bg-color) == color
+	{
+		background-color: $bg-color;
+		color: foreground($bg-color);
+	}
+	@else if type-of($bg-color) == map
+	{
+		background-color: map-get($bg-color, $hue);
+		color: foreground(map-get($bg-color, $hue));
+	}
+	@else
+	{
+		@error "Unknown type of $bg-color. Expected color or map, was #{type-of($bg-color)}";
+	}
+}

@@ -16,7 +16,7 @@
     @include		border-radius(2px);
 	@include		background-image(none);
     border:			none;
-    @include		transition(background-color 200ms, box-shadow 200ms);
+    @include		transition(background-color 200ms, box-shadow 200ms, color 200ms);
 	&, &.raised
 	{
 		color: rgba(#000, 0.87);
@@ -42,19 +42,17 @@
 			&:disabled	{ background-color: rgba(#ccc, 0.1); }
 		}
 		&.color{
-			background-color:	$primary-500;
-			color:				white;
-			&:hover		{ background-color: $primary-600; }
-			&:active	{ background-color: $primary-700; }
+			@include background-color($primary-500);
+			&:hover		{ @include background-color($primary-600); }
+			&:active	{ @include background-color($primary-700); }
 		}
 		@each $name, $color in $colors
 		{
 			&.#{"" + $name}, &[color="#{"" + $name}"]
 			{
-				color:		white;
-				background-color: map-get($color, 500);
-				&:hover		{ background-color: map-get($color, 600); }
-				&:active	{ background-color: map-get($color, 700); }
+				@include background-color($color, 500);
+				&:hover		{ @include background-color($color, 600); }
+				&:active	{ @include background-color($color, 700); }
 			}
 		}
 	}
