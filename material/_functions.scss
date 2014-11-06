@@ -1,0 +1,20 @@
+@function map-has-value($map, $value)
+{
+	@if index(map-values($map), $value)
+	{
+		@return true;
+	}
+	@return false;
+}
+
+@function map-get-key($map, $value)
+{
+	@each $mkey, $mvalue in $map
+	{
+		@if $mvalue == $value
+		{
+			@return $mkey;
+		}
+	}
+	@return null;
+}

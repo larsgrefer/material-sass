@@ -21,6 +21,9 @@
 @import "colors/teal";
 @import "colors/yellow";
 
+$black:	#000000;
+$white:	#FFFFFF;
+
 $colors: (
 "red":			$red,
 "pink":			$pink,
@@ -41,3 +44,79 @@ $colors: (
 "brown":		$brown,
 "grey":			$grey,
 "blueGrey":		$blueGrey);
+
+@import "material/functions";
+@import "compass/utilities/color/brightness";
+
+$last-black: (
+"red":			400,
+"pink":			400,
+"purple":		200,
+"deepPurple":	200,
+"indigo":		200,
+"blue":			400,
+"lightBlue":	400,
+"cyan":			400,
+"teal":			400,
+"green":		400,
+"lightGreen":	700,
+"lime":			800,
+"yellow":		900,
+"amber":		900,
+"orange":		700,
+"deepOrange":	400,
+"brown":		200,
+"grey":			500,
+"blueGrey":		300);
+
+$last-black-accent: (
+"red":			A100,
+"pink":			A100,
+"purple":		A100,
+"deepPurple":	A100,
+"indigo":		A100,
+"blue":			A100,
+"lightBlue":	A400,
+"cyan":			A700,
+"teal":			A700,
+"green":		A700,
+"lightGreen":	A700,
+"lime":			A700,
+"yellow":		A700,
+"amber":		A700,
+"orange":		A700,
+"deepOrange":	A200,
+"brown":		A200);
+
+@function foreground($bgcolor)
+{
+	$bgcolor: rgba($bgcolor, 1);
+	@each $cname, $cmap in $colors
+	{
+		@if map-has-value($cmap, $bgcolor)
+		{
+			$ckey: map-get-key($cmap, $bgcolor);
+			@if type-of($ckey) == number
+			{
+				@if $ckey <= map-get($last-black, $cname)
+				{
+					@return $black;
+				}
+				@else
+				{
+					@return $white;
+				}
+			}
+			@else
+			{
+				$last-black-accent-brightness: brightness(map-get($cmap,map-get($last-black-accent, $cname)));
+				@if brightness($bgcolor) >= $last-black-accent-brightness
+				{
+					@return $black;
+				}
+				@return $white;
+			}
+		}
+	}
+	@return if(brightness($bgcolor) <= 50%, $black, $white);
+}

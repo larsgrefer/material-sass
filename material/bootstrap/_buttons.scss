@@ -1,0 +1,11 @@
+@import "material/components/buttons";
+
+.btn
+{
+	@extend %button;
+	
+	&-link
+	{
+		@extend .flat;
+	}
+}
