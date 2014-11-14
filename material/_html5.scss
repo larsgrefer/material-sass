@@ -2,23 +2,26 @@
 @import "material";
 
 
+@at-root
+{
 body
 {
     font-family:			RobotoDraft, Roboto, sans-serif;
     font-size:				13px;
-    font-weight:			400;
-    color:					rgba(#000, 0.87);
+    font-weight:			font-weight();
+    color:					font-color(black, text);
     background-color:		$grey-50;
 	&.light, .light &
 	{
 		background-color:	$grey-200;
-		color:				rgba(#000, 0.87);
+		color:				font-color(black, text);
 	}
 	&.dark, .dark &
 	{
 		background-color:	#333;
-		color:				rgba(#fff, 0.87);
+		color:				font-color(white, text);
 	}
+}
 }
 
 #{$button-selector}
