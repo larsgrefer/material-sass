@@ -3,14 +3,15 @@
 
 @mixin border-bottom-width($width){
 	border-bottom-width:	$width;
-	padding-bottom:			8px - $width;
+	padding-bottom:			6px - $width;
 }
 
 %inputField
 {
 	font-size:				16px;
-	font-weight:			500;
+	font-weight:			font-weight(inputField);
 	font-family:			RobotoDraft, Roboto, sans-serif;
+	line-height:			20px;
 	@include				font-color(text);
 	@include				border-radius(0px);
 	@include				box-shadow(none);
@@ -19,34 +20,35 @@
 	border-bottom-style:	solid;
 	@include placeholder{
 		font-size:		16px;
-		font-weight:	500;
+		font-weight:	font-weight(inputField);
 	}
 	&, &.light, .light &{
-		border-bottom-color:	rgba(#000, 0.12);
+		border-bottom-color:	font-color(black, divider);
 		@include placeholder{
-			opacity: 1;
-			color: rgba(#000, 0.26);
+			opacity:	1;
+			color:		font-color(black, hint);
 		}
 	}
 	&.dark, .dark &{
-		border-bottom-color:	rgba(#FFF, 0.12);
+		border-bottom-color:	font-color(white, divider);
 		@include placeholder{
-			opacity: 1;
-			color: rgba(#FFF, 0.26);
+			opacity:	1;
+			color:		font-color(white, hint);
 		}
 	}
 	&:not(.full-width)
 	{
 		margin:		8px 0px 8px;
-		padding:	8px 0px 7px;
+		padding:	6px 0px 5px;
 		@include	border-bottom-width(1px);
 		&:focus{
 			@include border-bottom-width(2.5px);
-			&, &[color="primary"]{
-				border-bottom-color:	$primary-500;
+			&, &[color="accent"]{
+				border-bottom-color:	$accent-A200;
+				@debug "accent-A200: #{$accent-A200}"
 			}
-			&[color="accent"]{
-				border-bottom-color:	$accent-A400;
+			&[color="primary"]{
+				border-bottom-color:	$primary-500;
 			}
 			@each $name, $color in $colors
 			{
