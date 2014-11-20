@@ -45,7 +45,6 @@
 			@include border-bottom-width(2.5px);
 			&, &[color="accent"]{
 				border-bottom-color:	$accent-A200;
-				@debug "accent-A200: #{$accent-A200}"
 			}
 			&[color="primary"]{
 				border-bottom-color:	$primary-500;

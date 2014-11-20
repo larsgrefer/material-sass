@@ -20,7 +20,7 @@
     @include		transition(background-color 200ms, box-shadow 200ms, color 200ms);
 	&, &.raised
 	{
-		color: rgba(#000, 0.87);
+		color: font-color(black, button);
 		@include z-depth(1);
 		&:focus, &:hover{
 			@include z-depth(2);
@@ -51,9 +51,9 @@
 		{
 			&.#{"" + $name}, &[color="#{"" + $name}"]
 			{
-				@include background-color($color, 500);
-				&:hover		{ @include background-color($color, 600); }
-				&:active	{ @include background-color($color, 700); }
+				@include background-color(map-get($color, 500),button);
+				&:hover		{ @include background-color( map-get($color, 600), button); }
+				&:active	{ @include background-color( map-get($color, 700), button); }
 			}
 		}
 	}
