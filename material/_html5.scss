@@ -86,4 +86,9 @@ div, iframe, section, article
 	font-size:			10px;
 	color:				rgba(#FFF, 0.87);
 	background-color:	rgba(#000, 0.9);
+	padding-left:		8px;
+	padding-right:		8px;
+	@include border-radius(2px);
+	min-height: 22px;
+	vertical-align: center;
 }
