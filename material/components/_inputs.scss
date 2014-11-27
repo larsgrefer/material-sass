@@ -12,69 +12,124 @@
 	font-weight:			font-weight(inputField);
 	font-family:			RobotoDraft, Roboto, sans-serif;
 	line-height:			20px;
-	@include				font-color(text);
+	color:					font-color(black, text);
 	@include				border-radius(0px);
 	@include				box-shadow(none);
 	border:					none;
 	background-color:		transparent;
 	border-bottom-style:	solid;
+	border-bottom-color:	font-color(black, divider);
 	@include placeholder{
 		font-size:		16px;
 		font-weight:	font-weight(inputField);
 	}
-	&, &.light, .light &{
-		border-bottom-color:	font-color(black, divider);
-		@include placeholder{
-			opacity:	1;
-			color:		font-color(black, hint);
+	
+	margin:		8px 0px 8px;
+	padding:	6px 0px 5px;
+	@include	border-bottom-width(1px);
+	&:focus{
+		@include border-bottom-width(2.5px);
+		&, &[color="accent"]{
+			border-bottom-color:	$accent-A200;
 		}
-	}
-	&.dark, .dark &{
-		border-bottom-color:	font-color(white, divider);
-		@include placeholder{
-			opacity:	1;
-			color:		font-color(white, hint);
+		&[color="primary"]{
+			border-bottom-color:	$primary-500;
 		}
-	}
-	&:not(.full-width)
-	{
-		margin:		8px 0px 8px;
-		padding:	6px 0px 5px;
-		@include	border-bottom-width(1px);
-		&:focus{
-			@include border-bottom-width(2.5px);
-			&, &[color="accent"]{
-				border-bottom-color:	$accent-A200;
-			}
-			&[color="primary"]{
-				border-bottom-color:	$primary-500;
-			}
-			@each $name, $color in $colors
-			{
-				&[color="#{"" + $name}"]{
-					border-bottom-color:	map-get($color, 500);
-				}
+		@each $name, $color in $colors
+		{
+			&[color="#{"" + $name}"]{
+				border-bottom-color:	map-get($color, 500);
 			}
 		}
-		&:disabled{
-			@include border-bottom-width(2px);
-			border-bottom-style:	dotted;
-		}
-		&:invalid{
-			@include border-bottom-width(2.5px);
-			border-bottom-color:	$red-500;
-		}
-		label.floating + &{
-			padding-top:	8px;
-			margin-top:		0px;
-		}
 	}
+	&:disabled {
+		@include border-bottom-width(1.5px);
+		border-bottom-style:	dotted;
+	}
+	&:invalid {
+		@include border-bottom-width(2.5px);
+		border-bottom-color:	$red-500;
+	}
+	label.floating + &{
+		padding-top:	8px;
+		margin-top:		0px;
+	}
+	
 	&.full-width{
 		margin:		0px;
 		padding:	20px;
 		@include	box-sizing(border-box);
 	}
 }
+
+%inputField.dark,
+.dark %inputField,
+.light .dark %inputField
+{
+	color:					font-color(white,text);
+	border-bottom-color:	font-color(white, divider);
+
+	&:focus{
+		&, &[color="accent"]{
+			border-bottom-color:	$accent-A200;
+		}
+		&[color="primary"]{
+			border-bottom-color:	$primary-500;
+		}
+		@each $name, $color in $colors
+		{
+			&[color="#{"" + $name}"]{
+				border-bottom-color:	map-get($color, 500);
+			}
+		}
+	}
+	&:disabled{
+		border-bottom-style:	dotted;
+	}
+	&:invalid{
+		border-bottom-color:	$red-500;
+	}
+	
+	@include placeholder{
+		opacity:	1;
+		color:		font-color(white, hint);
+	}
+}
+
+%inputField.light,
+.light %inputField,
+.dark .light %inputField
+{
+	color:					font-color(black,text);
+	border-bottom-color:	font-color(black, divider);
+
+	&:focus{
+		&, &[color="accent"]{
+			border-bottom-color:	$accent-A200;
+		}
+		&[color="primary"]{
+			border-bottom-color:	$primary-500;
+		}
+		@each $name, $color in $colors
+		{
+			&[color="#{"" + $name}"]{
+				border-bottom-color:	map-get($color, 500);
+			}
+		}
+	}
+	&:disabled{
+		border-bottom-style:	dotted;
+	}
+	&:invalid{
+		border-bottom-color:	$red-500;
+	}
+
+	@include placeholder{
+		opacity:	1;
+		color:		font-color(black, hint);
+	}
+}
+
 
 label.floating{
 	font-weight:	500;
@@ -83,5 +138,17 @@ label.floating{
 	margin:			0px;
 	padding:		0px;
 	padding-top:	16px;
-	@include font-color(hint);
+	color:			font-color(black, hint);
+}
+
+.dark, .light .dark{
+	label.floating{
+		color:	font-color(white, hint);
+	}
+}
+
+.light, .dark .light{
+	label.floating{
+		color:	font-color(black, hint);
+	}
 }
