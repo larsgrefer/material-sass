@@ -2,7 +2,7 @@
 @import "material/fonts";
 @import "material/mixins";
 
-%tabs{
+%tabs {
 	margin:		0px;
 	@include	display-flex;
 	@include	flex-direction(row);

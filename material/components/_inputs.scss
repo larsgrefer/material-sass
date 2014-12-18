@@ -3,77 +3,133 @@
 
 @mixin border-bottom-width($width){
 	border-bottom-width:	$width;
-	padding-bottom:			8px - $width;
+	padding-bottom:			6px - $width;
 }
 
 %inputField
 {
 	font-size:				16px;
-	font-weight:			500;
+	font-weight:			font-weight(inputField);
 	font-family:			RobotoDraft, Roboto, sans-serif;
-	@include				font-color(text);
+	line-height:			20px;
+	color:					font-color(black, text);
 	@include				border-radius(0px);
 	@include				box-shadow(none);
 	border:					none;
 	background-color:		transparent;
 	border-bottom-style:	solid;
+	border-bottom-color:	font-color(black, divider);
 	@include placeholder{
 		font-size:		16px;
-		font-weight:	500;
+		font-weight:	font-weight(inputField);
 	}
-	&, &.light, .light &{
-		border-bottom-color:	rgba(#000, 0.12);
-		@include placeholder{
-			opacity: 1;
-			color: rgba(#000, 0.26);
+	
+	margin:		8px 0px 8px;
+	padding:	6px 0px 5px;
+	@include	border-bottom-width(1px);
+	&:focus{
+		@include border-bottom-width(2.5px);
+		&, &[color="accent"]{
+			border-bottom-color:	$accent-A200;
 		}
-	}
-	&.dark, .dark &{
-		border-bottom-color:	rgba(#FFF, 0.12);
-		@include placeholder{
-			opacity: 1;
-			color: rgba(#FFF, 0.26);
+		&[color="primary"]{
+			border-bottom-color:	$primary-500;
 		}
-	}
-	&:not(.full-width)
-	{
-		margin:		8px 0px 8px;
-		padding:	8px 0px 7px;
-		@include	border-bottom-width(1px);
-		&:focus{
-			@include border-bottom-width(2.5px);
-			&, &[color="primary"]{
-				border-bottom-color:	$primary-500;
-			}
-			&[color="accent"]{
-				border-bottom-color:	$accent-A400;
-			}
-			@each $name, $color in $colors
-			{
-				&[color="#{"" + $name}"]{
-					border-bottom-color:	map-get($color, 500);
-				}
+		@each $name, $color in $colors
+		{
+			&[color="#{"" + $name}"]{
+				border-bottom-color:	map-get($color, 500);
 			}
 		}
-		&:disabled{
-			@include border-bottom-width(2px);
-			border-bottom-style:	dotted;
-		}
-		&:invalid{
-			@include border-bottom-width(2.5px);
-			border-bottom-color:	$red-500;
-		}
-		label.floating + &{
-			padding-top:	8px;
-			margin-top:		0px;
-		}
 	}
+	&:disabled {
+		@include border-bottom-width(1.5px);
+		border-bottom-style:	dotted;
+	}
+	&:invalid {
+		@include border-bottom-width(2.5px);
+		border-bottom-color:	$red-500;
+	}
+	label.floating + &{
+		padding-top:	8px;
+		margin-top:		0px;
+	}
+	
 	&.full-width{
 		margin:		0px;
 		padding:	20px;
 		@include	box-sizing(border-box);
 	}
 }
+
+%inputField.dark,
+.dark %inputField,
+.light .dark %inputField
+{
+	color:					font-color(white,text);
+	border-bottom-color:	font-color(white, divider);
+
+	&:focus{
+		&, &[color="accent"]{
+			border-bottom-color:	$accent-A200;
+		}
+		&[color="primary"]{
+			border-bottom-color:	$primary-500;
+		}
+		@each $name, $color in $colors
+		{
+			&[color="#{"" + $name}"]{
+				border-bottom-color:	map-get($color, 500);
+			}
+		}
+	}
+	&:disabled{
+		border-bottom-style:	dotted;
+	}
+	&:invalid{
+		border-bottom-color:	$red-500;
+	}
+	
+	@include placeholder{
+		opacity:	1;
+		color:		font-color(white, hint);
+	}
+}
+
+%inputField.light,
+.light %inputField,
+.dark .light %inputField
+{
+	color:					font-color(black,text);
+	border-bottom-color:	font-color(black, divider);
+
+	&:focus{
+		&, &[color="accent"]{
+			border-bottom-color:	$accent-A200;
+		}
+		&[color="primary"]{
+			border-bottom-color:	$primary-500;
+		}
+		@each $name, $color in $colors
+		{
+			&[color="#{"" + $name}"]{
+				border-bottom-color:	map-get($color, 500);
+			}
+		}
+	}
+	&:disabled{
+		border-bottom-style:	dotted;
+	}
+	&:invalid{
+		border-bottom-color:	$red-500;
+	}
+
+	@include placeholder{
+		opacity:	1;
+		color:		font-color(black, hint);
+	}
+}
+
 
 label.floating{
 	font-weight:	500;
@@ -82,5 +138,17 @@ label.floating{
 	margin:			0px;
 	padding:		0px;
 	padding-top:	16px;
-	@include font-color(hint);
+	color:			font-color(black, hint);
+}
+
+.dark, .light .dark{
+	label.floating{
+		color:	font-color(white, hint);
+	}
+}
+
+.light, .dark .light{
+	label.floating{
+		color:	font-color(black, hint);
+	}
 }

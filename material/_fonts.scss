@@ -19,7 +19,7 @@ $font-sizes:(
 "button":		14px
 );
 
-@function font-size($type: "body-2")
+@function font-size($type: "body-1")
 {
 	@return map-get($font-sizes, $type);
 }
@@ -41,40 +41,70 @@ $font-weights:(
 "button":		500
 );
 
-@function font-weight($type: "body-2")
+@function font-weight($type: "body-1")
 {
 	@return map-get($font-weights, $type);
 }
 
+$black-alphas:(
+	"text":		0.87,
+	"icon":		0.54,
+	"secondary":0.54,
+	"disabled":	0.26,
+	"hint":		0.26,
+	"divider":	0.12
+);
+
+$white-alphas:(
+	"text":		1,
+	"icon":		1,
+	"secondary":0.7,
+	"disabled":	0.3,
+	"hint":		0.3,
+	"divider":	0.12
+);
+
+$alphas:(
+	#000:	$black-alphas,
+	#FFF:	$white-alphas
+);
+
+
 $opacities:(
 //Values from
 //http://material-design.storage.googleapis.com/images/style-typography-16_large_mdpi.png
-"display-4":	0.54,
-"display-3":	0.54,
-"display-2":	0.54,
-"display-1":	0.54,
-"headline":		0.87,
-"title":		0.87,
-"subhead":		0.87,
-"body-2":		0.87,
-"body-1":		0.87,
-"caption":		0.54,
-"menu":			0.87,
-"button":		0.87,
-//Values from
-//http://material-design.storage.googleapis.com/images/style-color-colorapplication-color_application-02_large_mdpi.png
-"divider":			0.12,
-"hint":				0.26,
-"hint-text":		0.26,
-"secondary":		0.54,
-"secondary-text":	0.54,
-"icon":				0.54,
-"text":				0.87
+"display-4":	"secondary",
+"display-3":	"secondary",
+"display-2":	"secondary",
+"display-1":	"secondary",
+"headline":		"text",
+"title":		"text",
+"subhead":		"text",
+"body-2":		"text",
+"body-1":		"text",
+"caption":		"secondary",
+"menu":			"text",
+"button":		"text",
 );
 
 @function opacity($type: "body-2")
 {
 	@return map-get($opacities, $type);
+}
+
+@function font-color($fg-color: #000, $type : "text")
+{
+	$alphas-map: map-get($alphas, rgba($fg-color, 1));
+	@if map-has-key($alphas-map, $type){
+		@return rgba($fg-color, map-get($alphas-map, $type));
+	}
+	@else if map-has-key($opacities, $type){
+		$alpha-key: map-get($opacities, $type);
+		@return rgba($fg-color, map-get($alphas-map, $alpha-key));
+	}
+	@else{
+		@error "Unknown $type: {$type}";
+	}
 }
 
 $line-heights:(

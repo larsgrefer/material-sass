@@ -78,10 +78,10 @@
 @mixin font-color($type: "body-2"){
 	
 	&, &.light, .light & {
-		color: rgba(#000, opacity($type));
+		color: font-color(black, $type);
 	}
 	&.dark, .dark & {
-		color: rgba(#FFF, opacity($type));
+		color: font-color(white, $type);
 	}
 }
 
