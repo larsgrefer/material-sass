@@ -1,5 +1,7 @@
 @import "compass/css3";
 
+@import "mixins/flexbox";
+
 //Values from:
 //http://material-design.storage.googleapis.com/images/layout-principles-dimensionality-shadows-09_large_mdpi.png
 @mixin z-depth( $depth )
