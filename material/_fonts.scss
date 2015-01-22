@@ -93,19 +93,21 @@ $opacities:(
 	@return map-get($opacities, $type);
 }
 
-@function font-color($fg-color: #000, $type : "text")
+@function font-opacity($fg-color, $type)
 {
 	$alphas-map: map-get($alphas, rgba($fg-color, 1));
 	@if map-has-key($alphas-map, $type){
-		@return rgba($fg-color, map-get($alphas-map, $type));
+		@return map-get($alphas-map, $type);
 	}
 	@else if map-has-key($opacities, $type){
 		$alpha-key: map-get($opacities, $type);
-		@return rgba($fg-color, map-get($alphas-map, $alpha-key));
+		@return map-get($alphas-map, $alpha-key);
 	}
-	@else{
-		@error "Unknown $type: {$type}";
-	}
+}
+
+@function font-color($fg-color: #000, $type : "text")
+{
+	@return rgba($fg-color, font-opacity($fg-color, $type));
 }
 
 $line-heights:(
