@@ -2,10 +2,16 @@
 
 .btn
 {
-	@extend %button;
-	
-	&-link
-	{
-		@extend .flat;
+	&-default, &-primary, &-success, &-info, &-warning, &-danger{
+		@include button(layout, raised);
+	}
+	&-primary {
+		@include button(raised, color);
+	}
+	&.disabled {
+		@extend :disabled;
+	}
+	&.active {
+		@extend :active;
 	}
 }

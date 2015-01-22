@@ -18,3 +18,10 @@
 	}
 	@return null;
 }
+
+@function list-contains($list, $value){
+	@if index($list, $value){
+		@return true;
+	}
+	@return false;
+}

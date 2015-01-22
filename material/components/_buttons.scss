@@ -1,74 +1,93 @@
 @import "compass/css3";
 @import "material/helpers";
 
-%button 
-{
-    height:			36px;
-    min-width:		88px;
-	padding:		8px 16px;
-	@include		box-sizing(border-box);
-    text-transform:	uppercase;
-	font-size:		font-size("button");
-	font-family:	unquote($font-family);
-	font-weight:	font-weight("button");
-	text-align:		center;
-	vertical-align: middle;
+@mixin button($options...){
+	@if list-contains($options, layout){
+		height:			36px;
+		min-width:		88px;
+		padding:		0px 16px;
+		@include		box-sizing(border-box);
+		text-transform:	uppercase;
+		font-size:		font-size("button");
+		font-family:	unquote($font-family);
+		font-weight:	font-weight("button");
+		text-align:		center;
+		vertical-align: middle;
 
-    @include		border-radius(2px);
-	@include		background-image(none);
-    border:			none;
-    @include		transition(background-color 200ms, box-shadow 200ms, color 200ms);
-	&, &.raised
-	{
-		color: font-color(black, button);
-		@include z-depth(1);
+		@include		border-radius(2px);
+		@include		background-image(none);
+		border:			none;
+	}
+	@if list-contains($options, raised){
+		@extend %raised !optional;
+		@include	z-depth(1);
+		@include	transition(background-color 200ms, box-shadow 200ms, color 200ms);
 		&:focus, &:hover{
 			@include z-depth(2);
 		}
 		&:active{
 			@include z-depth(3);
 		}
-		background-color: $grey-50;
-		&:hover		{ background-color: $grey-50 - (invert(#999) * 0.20) }
-		&:active	{ background-color: $grey-50 - (invert(#999) * 0.40); }
-		&:disabled	{ background-color: rgba(#999, 0.1); }
 
-		&.color{
+		@if list-contains($options, color) or list-contains($options, dark){
+			@extend %color !optional;
 			@include background-color($primary-500);
 			&:hover		{ @include background-color($primary-600); }
 			&:active	{ @include background-color($primary-700); }
+		} @else {
+			color: font-color(black, button);
+			background-color: $grey-50;
+			&:hover		{ background-color: $grey-50 - (invert(#999) * 0.20) }
+			&:active	{ background-color: $grey-50 - (invert(#999) * 0.40); }
 		}
-		//@each $name, $color in $colors
-		//{
-		//	&.#{"" + $name}, &[color="#{"" + $name}"]
-		//	{
-		//		@include background-color(map-get($color, 500),button);
-		//		&:hover		{ @include background-color( map-get($color, 600), button); }
-		//		&:active	{ @include background-color( map-get($color, 700), button); }
-		//	}
-		//}
-	}
-	&.flat
-    {
-		@include z-depth(0);
+		&:disabled { 
+			@include z-depth(0);
+			background-color: rgba(if(list-contains($options, dark), white, black), 0.12);
+			color:	if(list-contains($options, dark),rgba(white, 0.30), rgba(black, 0.26));
+		}
+
+	} @else if list-contains($options, flat) {
+		@extend %flat !optional;
+		@include	z-depth(0);
+		@include	transition(background-color 200ms, box-shadow 200ms, color 200ms);
 		background-color: transparent;
 
-		color:		rgba(#000, 0.87);
-		&:hover		{ background-color: rgba(#999, 0.2); }
-		&:active	{ background-color: rgba(#999, 0.4); }
-		&:disabled	{ background-color: rgba(#999, 0.1); }
-
-		&.color		{ color: $primary-500; }
-		//@each $name, $color in $colors
-		//{
-		//	&.#{"" + $name}, &[color*="#{"" + $name}"]
-		//	{
-		//		color: map-get($color, 500);
-		//	}
-		//}
-    }
+		@if list-contains($options, dark){
+			@if list-contains($options, color){
+				@extend %color !optional;
+				color:	$primary-500;
+			} @else {
+				color:	font-color(white, button);
+			}
+			&:hover		{ background-color: rgba(#CCC, 0.15); }
+			&:active	{ background-color: rgba(#CCC, 0.25); }
+		} @else {
+			@if list-contains($options, color){
+				@extend %color !optional;
+				color:	$primary-500;
+			} @else {
+				color:	font-color(black, button);
+			}
+			&:hover		{ background-color: rgba(#999, 0.2); }
+			&:active	{ background-color: rgba(#999, 0.4); }
+		}
+		&:disabled{
+			color:	if(list-contains($options, dark),rgba(white, 0.30), rgba(black, 0.26));
+		}
+	} @else {
+		@if list-contains($options, light){
+			&:disabled{
+				color: rgba(black, 0.26);
+			}
+		} @else if list-contains($options, dark){
+			&:disabled{
+				color: rgba(white, 0.30);
+			}
+		}
+	}
 }
 
+/*
 %button.dark,
 .dark %button,
 .light .dark %button
@@ -109,3 +128,4 @@
 		&:disabled	{ background-color: rgba(#999, 0.1); }
     }
 }
+*/

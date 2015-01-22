@@ -39,6 +39,6 @@
 		text-transform:			uppercase;
 		font-size:				font-size("button");
 		font-weight:			font-weight("button");
-		@inlcude				font-color("button");
+		color:					font-color(white, "button");
 	}
 }

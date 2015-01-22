@@ -26,7 +26,23 @@ body
 
 #{$button-selector}
 {
-	@extend %button;
+	@include button(layout);
+
+	&, &.raised
+	{
+		@include button(raised);
+
+		&.color{
+			@include button(raised, color);
+		}
+	}
+	&.flat
+    {
+		@include button(flat);
+		&.color{
+			@include button(flat, color);
+		}
+    }
 }
 
 #{$inputField-selector}
@@ -73,22 +89,14 @@ div, iframe, section, article
 	font-size:			14px;
 	font-weight:		400;
 	background-color:	#323232;
-	%button
+	#{$button-selector}
 	{
-		@extend		.flat;
-		@extend		.color;
+		@include	button(flat, color);
 		margin:		0px;
 	}
 }
 
 .tooltip
 {
-	font-size:			10px;
-	color:				rgba(#FFF, 0.87);
-	background-color:	rgba(#000, 0.9);
-	padding-left:		8px;
-	padding-right:		8px;
-	@include border-radius(2px);
-	min-height: 22px;
-	vertical-align: center;
+	@include tooltip;
 }
