@@ -1,0 +1,30 @@
+@import "icons/24px";
+
+@function svg-color($color){
+	$r: red($color);
+	$g: green($color);
+	$b: blue($color);
+	$a: alpha($color);
+	@return 'rgba(#{$r},#{$g},#{$b},#{$a})';
+}
+
+@function insert-fill($svg-content, $fill){
+	@return '<g fill="#{svg-color($fill)}">#{$svg-content}</g>';
+}
+
+@function svg-data-url($svg-data){
+	@return url('data:image/svg+xml,#{$svg-data}');
+}
+
+@function svg-data($svg-content, $size: 24){
+	@return '<svg xmlns="http://www.w3.org/2000/svg" width="#{$size}" height="#{$size}" viewBox="0 0 24 24">#{$svg-content}</svg>';
+}
+
+@function svg-icon-url($name, $fill: null, $size: 24){
+	$svg-content: map-get($icon-contents-24px, $name);
+	@if $fill != null {
+		$svg-content: insert-fill($svg-content, $fill);
+	}
+	$svg-data:	svg-data($svg-content, $size);
+	@return svg-data-url($svg-data);
+}
