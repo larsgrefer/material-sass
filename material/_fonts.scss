@@ -38,7 +38,8 @@ $font-weights:(
 "body-1":		400,
 "caption":		400,
 "menu":			500,
-"button":		500
+"button":		500,
+"tooltip":		500
 );
 
 @function font-weight($type: "body-1")

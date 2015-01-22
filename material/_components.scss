@@ -1,3 +1,24 @@
 @import "components/buttons";
 @import "components/inputs";
 @import "components/tabs";
+
+@mixin tooltip($variant: desktop){
+	@if $variant == phone or $variant == touch{
+		font-size:	14px;
+		padding:	0px 16px;
+		height:		44px;
+		line-height: 44px;
+	} @else {
+		font-size:	10px;
+		padding:	0px 8px;
+		height:		22px;
+		line-height: 22px;
+	}
+	font-weight:		font-weight(tooltip);
+	color:				font-color(white, text);
+	background-color:	$tooltip;
+	margin-top:			4px;
+	display:			inline-block;
+	@include border-radius(2px);
+	@include transition(visibility 200ms, opacity 200ms);
+}
