@@ -2,6 +2,29 @@
 @import "material/helpers";
 
 @mixin button($options...){
+	@include button-color-extended($primary, 
+		":hover", 
+		":active", 
+		":focus", 
+		":disabled",
+		$options);
+}
+
+@mixin button-color($color-map, $options...){
+	
+	@include button-color-extended($color-map, 
+		":hover", 
+		":active", 
+		":focus", 
+		":disabled",
+		append($options, color));
+}
+
+@mixin button-extended($hover, $active, $focus, $disabled, $options...){
+	@include button-color-extended($primary, $hover, $active, $focus, $disabled, $options);
+}
+
+@mixin button-color-extended($color-map, $hover, $active, $focus, $disabled, $options){
 	@if list-contains($options, layout){
 		height:			36px;
 		min-width:		88px;
@@ -22,25 +45,25 @@
 		@extend %raised !optional;
 		@include	z-depth(1);
 		@include	transition(background-color 200ms, box-shadow 200ms, color 200ms);
-		&:focus, &:hover{
+		&#{$focus}, &#{$hover}{
 			@include z-depth(2);
 		}
-		&:active{
+		&#{$active}{
 			@include z-depth(3);
 		}
 
 		@if list-contains($options, color) or list-contains($options, dark){
 			@extend %color !optional;
-			@include background-color($primary-500);
-			&:hover		{ @include background-color($primary-600); }
-			&:active	{ @include background-color($primary-700); }
+			@include background-color(map-get($color-map, 500));
+			&#{$hover}	{ @include background-color(map-get($color-map, 600)); }
+			&#{$active}	{ @include background-color(map-get($color-map, 700)); }
 		} @else {
 			color: font-color(black, button);
 			background-color: $grey-50;
-			&:hover		{ background-color: $grey-50 - (invert(#999) * 0.20) }
-			&:active	{ background-color: $grey-50 - (invert(#999) * 0.40); }
+			&#{$hover}	{ background-color: $grey-50 - (invert(#999) * 0.20) }
+			&#{$active}	{ background-color: $grey-50 - (invert(#999) * 0.40); }
 		}
-		&:disabled { 
+		&#{$disabled} { 
 			@include z-depth(0);
 			background-color: rgba(if(list-contains($options, dark), white, black), 0.12);
 			color:	if(list-contains($options, dark),rgba(white, 0.30), rgba(black, 0.26));
@@ -55,77 +78,34 @@
 		@if list-contains($options, dark){
 			@if list-contains($options, color){
 				@extend %color !optional;
-				color:	$primary-500;
+				color:	map-get($color-map, 500);
 			} @else {
 				color:	font-color(white, button);
 			}
-			&:hover		{ background-color: rgba(#CCC, 0.15); }
-			&:active	{ background-color: rgba(#CCC, 0.25); }
+			&#{$hover}	{ background-color: rgba(#CCC, 0.15); }
+			&#{$active}	{ background-color: rgba(#CCC, 0.25); }
 		} @else {
 			@if list-contains($options, color){
 				@extend %color !optional;
-				color:	$primary-500;
+				color:	map-get($color-map, 500);
 			} @else {
 				color:	font-color(black, button);
 			}
-			&:hover		{ background-color: rgba(#999, 0.2); }
-			&:active	{ background-color: rgba(#999, 0.4); }
+			&#{$hover}	{ background-color: rgba(#999, 0.2); }
+			&#{$active}	{ background-color: rgba(#999, 0.4); }
 		}
-		&:disabled{
+		&#{$disabled}{
 			color:	if(list-contains($options, dark),rgba(white, 0.30), rgba(black, 0.26));
 		}
 	} @else {
 		@if list-contains($options, light){
-			&:disabled{
+			&#{$disabled}{
 				color: rgba(black, 0.26);
 			}
 		} @else if list-contains($options, dark){
-			&:disabled{
+			&#{$disabled}{
 				color: rgba(white, 0.30);
 			}
 		}
 	}
 }
-
-/*
-%button.dark,
-.dark %button,
-.light .dark %button
-{
-	&, &.raised
-	{
-		color: font-color(black, button);
-		background-color: #DFDFDF;
-		&:hover		{ background-color: #DFDFDF - (invert(#ccc) * 0.15) }
-		&:active	{ background-color: #DFDFDF - (invert(#ccc) * 0.25); }
-		&:disabled	{ background-color: rgba(#ccc, 0.1); }
-	}
-	&.flat
-    {
-		color:		font-color(white, button);
-		&:hover		{ background-color: rgba(#ccc, 0.15); }
-		&:active	{ background-color: rgba(#ccc, 0.25); }
-		&:disabled	{ background-color: rgba(#ccc, 0.1); }
-    }
-}
-
-%button.light,
-.light %button,
-.dark .light %button
-{
-	&, &.raised
-	{
-		background-color: $grey-50;
-		&:hover		{ background-color: $grey-50 - (invert(#999) * 0.20) }
-		&:active	{ background-color: $grey-50 - (invert(#999) * 0.40); }
-		&:disabled	{ background-color: rgba(#999, 0.1); }
-	}
-	&.flat
-    {
-		color:		font-color(black, button);
-		&:hover		{ background-color: rgba(#999, 0.2); }
-		&:active	{ background-color: rgba(#999, 0.4); }
-		&:disabled	{ background-color: rgba(#999, 0.1); }
-    }
-}
-*/
