@@ -24,6 +24,10 @@ body
 }
 }
 
+@include selection{
+    @include background-color($accent-A400);
+}
+
 #{$button-selector}
 {
 	@include button(layout);
@@ -47,7 +51,7 @@ body
 
 #{$inputField-selector}
 {
-	@extend %inputField
+	@include inputField(layout, light);
 }
 
 .toolbar

@@ -2,7 +2,7 @@
 @import "material/helpers";
 
 @mixin button($options...){
-	@include button-color-extended($primary, 
+	@include button-color-extended($accent, 
 		":hover", 
 		":active", 
 		":focus", 
@@ -21,7 +21,7 @@
 }
 
 @mixin button-extended($hover, $active, $focus, $disabled, $options...){
-	@include button-color-extended($primary, $hover, $active, $focus, $disabled, $options);
+	@include button-color-extended($accent, $hover, $active, $focus, $disabled, $options);
 }
 
 @mixin button-color-extended($color-map, $hover, $active, $focus, $disabled, $options){

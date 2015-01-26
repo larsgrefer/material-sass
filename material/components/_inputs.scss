@@ -3,152 +3,83 @@
 
 @mixin border-bottom-width($width){
 	border-bottom-width:	$width;
-	padding-bottom:			6px - $width;
+	margin-bottom:			8px - $width;
 }
 
-%inputField
-{
-	font-size:				16px;
-	font-weight:			font-weight(inputField);
-	font-family:			RobotoDraft, Roboto, sans-serif;
-	line-height:			20px;
-	color:					font-color(black, text);
-	@include				border-radius(0px);
-	@include				box-shadow(none);
-	border:					none;
-	background-color:		transparent;
-	border-bottom-style:	solid;
-	border-bottom-color:	font-color(black, divider);
-	@include placeholder{
-		font-size:		16px;
-		font-weight:	font-weight(inputField);
-	}
-	
-	margin:		8px 0px 8px;
-	padding:	6px 0px 5px;
-	@include	border-bottom-width(1px);
-	&:focus{
-		@include border-bottom-width(2.5px);
-		&, &[color="accent"]{
-			border-bottom-color:	$accent-A200;
-		}
-		&[color="primary"]{
-			border-bottom-color:	$primary-500;
-		}
-		@each $name, $color in $colors
-		{
-			&[color="#{"" + $name}"]{
-				border-bottom-color:	map-get($color, 500);
-			}
-		}
-	}
-	&:disabled {
-		@include border-bottom-width(1.5px);
-		border-bottom-style:	dotted;
-	}
-	&:invalid {
-		@include border-bottom-width(2.5px);
-		border-bottom-color:	$red-500;
-	}
-	label.floating + &{
-		padding-top:	8px;
-		margin-top:		0px;
-	}
-	
-	&.full-width{
-		margin:		0px;
-		padding:	20px;
-		@include	box-sizing(border-box);
-	}
+@mixin inputField($options...){
+	@include inputField-color-extended($accent-500,":active", ":focus", ":disabled", ":invalid", $options...)
 }
 
-%inputField.dark,
-.dark %inputField,
-.light .dark %inputField
-{
-	color:					font-color(white,text);
-	border-bottom-color:	font-color(white, divider);
-
-	&:focus{
-		&, &[color="accent"]{
-			border-bottom-color:	$accent-A200;
-		}
-		&[color="primary"]{
-			border-bottom-color:	$primary-500;
-		}
-		@each $name, $color in $colors
-		{
-			&[color="#{"" + $name}"]{
-				border-bottom-color:	map-get($color, 500);
-			}
-		}
-	}
-	&:disabled{
-		border-bottom-style:	dotted;
-	}
-	&:invalid{
-		border-bottom-color:	$red-500;
-	}
-	
-	@include placeholder{
-		opacity:	1;
-		color:		font-color(white, hint);
-	}
+@mixin inputField-extended($active, $focus, $disabled, $invalid, $options...){
+	@include inputField-color-extended($accent-500, $active, $focus, $disabled, $invalid, $options...);
 }
-
-%inputField.light,
-.light %inputField,
-.dark .light %inputField
+@mixin inputField-color-extended($color, $active, $focus, $disabled, $invalid, $options...)
 {
-	color:					font-color(black,text);
-	border-bottom-color:	font-color(black, divider);
-
-	&:focus{
-		&, &[color="accent"]{
-			border-bottom-color:	$accent-A200;
+	@if list-contains($options, layout){
+		font-size:				16px;
+		font-weight:			font-weight(inputField);
+		font-family:			RobotoDraft, Roboto, sans-serif;
+		line-height:			20px;
+		@include				border-radius(0px);
+		@include				box-shadow(none);
+		border:					none;
+		background-color:		transparent;
+		border-bottom-style:	solid;
+		margin:		8px 0px 8px;
+		padding:	6px 0px 6px;
+		@include	border-bottom-width(1px);
+		@include	transition(color 200ms, border-bottom-color 200ms);
+		&#{$active}, &#{$focus}{
+			@include border-bottom-width(2px);
+			border-bottom-color:	$color;
 		}
-		&[color="primary"]{
-			border-bottom-color:	$primary-500;
+		&#{$disabled} {
+			@include border-bottom-width(2px);
+			border-bottom-style:	dotted;
 		}
-		@each $name, $color in $colors
-		{
-			&[color="#{"" + $name}"]{
-				border-bottom-color:	map-get($color, 500);
-			}
+		&#{$invalid} {
+			@include border-bottom-width(2px);
+			border-bottom-color:	$red-500;
+		}
+		%floatingLabel + & {
+			margin-top:		0px;
 		}
 	}
-	&:disabled{
-		border-bottom-style:	dotted;
-	}
-	&:invalid{
-		border-bottom-color:	$red-500;
+	@if list-contains($options, dark){
+		color:					font-color(white, text);
+		border-bottom-color:	font-color(white, divider);
+	} @else if list-contains($options, light){
+		color:					font-color(black, text);
+		border-bottom-color:	font-color(black, divider);				
 	}
 
 	@include placeholder{
-		opacity:	1;
-		color:		font-color(black, hint);
+		@if list-contains($options, layout){
+			font-size:		16px;
+			font-weight:	font-weight(inputField);
+		}
+		@if list-contains($options, dark){
+			color:			font-color(white,hint);
+			opacity:		1;
+		} @else if list-contains($options, light){
+			color:			font-color(black,hint);
+			opacity:		1;
+		}
+
 	}
 }
 
-
-label.floating{
+@mixin floatingLabel($options...){
+	@extend %floatingLabel !optional;
 	font-weight:	500;
 	font-size:		12px;
 	display:		block;
 	margin:			0px;
 	padding:		0px;
 	padding-top:	16px;
-	color:			font-color(black, hint);
-}
-
-.dark, .light .dark{
-	label.floating{
-		color:	font-color(white, hint);
-	}
-}
-
-.light, .dark .light{
-	label.floating{
-		color:	font-color(black, hint);
+	@if list-contains($options, dark){
+		color:		font-color(white, hint);
+	} @else{
+		color:		font-color(black, hint);
 	}
 }

@@ -100,3 +100,14 @@
 							}
 						}
 }
+
+@mixin selection
+{
+	@each $selector in ("::-moz-selection" ,"::selection")
+						{
+							#{$selector}
+							{
+								@content
+							}
+						}
+}
