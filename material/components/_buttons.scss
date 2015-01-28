@@ -3,21 +3,21 @@
 
 @mixin button($options...){
 	@include button-color-extended($accent, 
-		":hover", 
-		":active", 
-		":focus", 
-		":disabled",
-		$options);
+	":hover", 
+	":active", 
+	":focus", 
+	":disabled",
+	$options);
 }
 
 @mixin button-color($color-map, $options...){
-	
+
 	@include button-color-extended($color-map, 
-		":hover", 
-		":active", 
-		":focus", 
-		":disabled",
-		append($options, color));
+	":hover", 
+	":active", 
+	":focus", 
+	":disabled",
+	append($options, color));
 }
 
 @mixin button-extended($hover, $active, $focus, $disabled, $options...){
@@ -91,8 +91,18 @@
 			} @else {
 				color:	font-color(black, button);
 			}
-			&#{$hover}	{ background-color: rgba(#999, 0.2); }
-			&#{$active}	{ background-color: rgba(#999, 0.4); }
+			&#{$hover}	{ 
+				background-color: rgba(#999, 0.2); 
+				@if list-contains($options, color){
+					color:	map-get($color-map, 600);
+				}
+			}
+			&#{$active}	{ 
+				background-color: rgba(#999, 0.4);
+				@if list-contains($options, color){
+					color:	map-get($color-map, 700);
+				}
+			}
 		}
 		&#{$disabled}{
 			color:	if(list-contains($options, dark),rgba(white, 0.30), rgba(black, 0.26));
