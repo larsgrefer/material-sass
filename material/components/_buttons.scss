@@ -8,7 +8,7 @@
 	":active", 
 	":focus", 
 	":disabled",
-	$options);
+	$options...);
 }
 
 @mixin button-extended($color-map, $hover, $active, $focus, $disabled, $options...){

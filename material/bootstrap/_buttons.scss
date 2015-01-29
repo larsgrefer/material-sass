@@ -9,9 +9,9 @@
 		@include button($accent, raised, color);
 	}
 	&.disabled {
-		@extend :disabled;
+		@extend .btn:disabled;
 	}
 	&.active {
-		@extend :active;
+		@extend .btn:active;
 	}
 }
