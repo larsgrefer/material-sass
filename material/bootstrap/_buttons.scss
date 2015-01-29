@@ -3,10 +3,10 @@
 .btn
 {
 	&-default, &-primary, &-success, &-info, &-warning, &-danger{
-		@include button(layout, raised);
+		@include button($accent, layout, raised);
 	}
 	&-primary {
-		@include button(raised, color);
+		@include button($accent, raised, color);
 	}
 	&.disabled {
 		@extend :disabled;

@@ -1,8 +1,9 @@
 @import "compass/css3";
 @import "material/helpers";
 
-@mixin button($options...){
-	@include button-color-extended($accent, 
+@mixin button($color-map, $options...){
+
+	@include button-extended($color-map, 
 	":hover", 
 	":active", 
 	":focus", 
@@ -10,21 +11,7 @@
 	$options);
 }
 
-@mixin button-color($color-map, $options...){
-
-	@include button-color-extended($color-map, 
-	":hover", 
-	":active", 
-	":focus", 
-	":disabled",
-	append($options, color));
-}
-
-@mixin button-extended($hover, $active, $focus, $disabled, $options...){
-	@include button-color-extended($accent, $hover, $active, $focus, $disabled, $options);
-}
-
-@mixin button-color-extended($color-map, $hover, $active, $focus, $disabled, $options){
+@mixin button-extended($color-map, $hover, $active, $focus, $disabled, $options...){
 	@if list-contains($options, layout){
 		height:			36px;
 		min-width:		88px;

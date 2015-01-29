@@ -6,14 +6,11 @@
 	margin-bottom:			8px - $width;
 }
 
-@mixin inputField($options...){
-	@include inputField-color-extended($accent-500,":active", ":focus", ":disabled", ":invalid", $options...)
+@mixin inputField($color, $options...){
+	@include inputField-extended($color,":active", ":focus", ":disabled", ":invalid", $options...)
 }
 
-@mixin inputField-extended($active, $focus, $disabled, $invalid, $options...){
-	@include inputField-color-extended($accent-500, $active, $focus, $disabled, $invalid, $options...);
-}
-@mixin inputField-color-extended($color, $active, $focus, $disabled, $invalid, $options...)
+@mixin inputField-extended($color, $active, $focus, $disabled, $invalid, $options...)
 {
 	@if list-contains($options, layout){
 		font-size:				16px;

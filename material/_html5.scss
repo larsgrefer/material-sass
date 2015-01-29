@@ -30,28 +30,28 @@ body
 
 #{$button-selector}
 {
-	@include button(layout);
+	@include button($accent, layout);
 
 	&, &.raised
 	{
-		@include button(raised);
+		@include button($accent, raised);
 
 		&.color{
-			@include button(raised, color);
+			@include button($accent, raised, color);
 		}
 	}
 	&.flat
     {
-		@include button(flat);
+		@include button($accent, flat);
 		&.color{
-			@include button(flat, color);
+			@include button($accent, flat, color);
 		}
     }
 }
 
 #{$inputField-selector}
 {
-	@include inputField(layout, light);
+	@include inputField($accent-500, layout, light);
 }
 
 .toolbar
@@ -95,7 +95,7 @@ div, iframe, section, article
 	background-color:	#323232;
 	#{$button-selector}
 	{
-		@include	button(flat, color);
+		@include	button($accent, flat, color);
 		margin:		0px;
 	}
 }
