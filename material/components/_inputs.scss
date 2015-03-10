@@ -45,9 +45,21 @@
 	@if list-contains($options, dark){
 		color:					font-color(white, text);
 		border-bottom-color:	font-color(white, divider);
+		&#{$active}, &#{$focus}{
+			border-bottom-color:	$color;
+		}
+		&#{$invalid} {
+			border-bottom-color:	$red-500;
+		}
 	} @else if list-contains($options, light){
 		color:					font-color(black, text);
-		border-bottom-color:	font-color(black, divider);				
+		border-bottom-color:	font-color(black, divider);
+		&#{$active}, &#{$focus}{
+			border-bottom-color:	$color;
+		}
+		&#{$invalid} {
+			border-bottom-color:	$red-500;
+		}
 	}
 
 	@include placeholder{
