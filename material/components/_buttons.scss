@@ -62,6 +62,13 @@
 		@include	transition(background-color 200ms, box-shadow 200ms, color 200ms);
 		background-color: transparent;
 
+		&#{$focus}, &#{$hover}{
+			@include z-depth(0);
+		}
+		&#{$active}{
+			@include z-depth(0);
+		}
+		
 		@if list-contains($options, dark){
 			@if list-contains($options, color){
 				@extend %color !optional;
