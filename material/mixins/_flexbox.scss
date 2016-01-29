@@ -57,6 +57,27 @@
 
 // Child Properties
 
+@mixin flex-grow($value) {
+	-webkit-flex-grow:	$value;
+	-moz-flex-grow:		$value;
+	-ms-flex-positive:	$value;
+	flex-grow: 			$value;
+}
+
+@mixin flex-shrink($value) {
+	-webkit-flex-shrink:	$value;
+	-moz-flex-shrink:		$value;
+	-ms-flex-negative:		$value;
+	flex-shrink: 			$value;
+}
+
+@mixin flex-base($value) {
+	-webkit-flex-base:			$value;
+	-moz-flex-base:				$value;
+	-ms-flex-preferred-size:	$value;
+	flex-base: 					$value;
+}
+
 @mixin flex($values) {
 	-webkit-box-flex:	$values;
 	-moz-box-flex:		$values;
